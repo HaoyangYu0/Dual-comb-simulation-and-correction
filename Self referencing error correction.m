@@ -3,8 +3,8 @@
 % The explaination of the algorithm can be found in Ref [1]. The requirement of the algorithm can be found in Ref [2,3].
 % References
 % [1] H. Yu, K. Ni, Q. Zhou, X. Li, X. Wang, G. Wu, "Digital error correction of dual-comb interferometer without external optical referencing information," Optics Express, 2019, 27(20): 29425-29438.
-% [2] H. Yu, Q. Zhou, X. Li, X. Wang, K. Ni, °∞Mode-resolved dual-comb spectroscopy using error correction based on single optical intermedium,°± Optics Express, 2021, 29(4): 6271-6281.
-% [3] H. Yu, K. Ni, Q. Zhou, X. Li, X. Wang, G. Wu, °∞Continuous Jitter Reconstruction of Dual-comb interferometer for self-referencing error correction,°± in 2020 Conference on Lasers and Electro-Optics Pacific Rim, CLEO-PR 2020. 
+% [2] H. Yu, Q. Zhou, X. Li, X. Wang, K. Ni, ‚ÄúMode-resolved dual-comb spectroscopy using error correction based on single optical intermedium,‚Äù Optics Express, 2021, 29(4): 6271-6281.
+% [3] H. Yu, K. Ni, Q. Zhou, X. Li, X. Wang, G. Wu, ‚ÄúContinuous Jitter Reconstruction of Dual-comb interferometer for self-referencing error correction,‚Äù in 2020 Conference on Lasers and Electro-Optics Pacific Rim, CLEO-PR 2020. 
 % Copyright, Haoyang Yu(yu.haoyang@csu.edu.cn) & Kai Ni(ni.kai@sz.tsinghua.edu.cn)
 clear all;
 close all;
@@ -76,7 +76,7 @@ xlabel('Time(s)');ylabel('Phase jitter(rad)'); title('(c)','FontName','Times New
 yticks([-pi,-pi/2,0,pi/2,pi]);yticklabels({'-\pi','-\pi/2','0','\pi/2','\pi'});
 subplot 236;plot(t_lab,wrapToPi(PJ-PJ_ideal)-mean(wrapToPi(PJ-PJ_ideal)),'g');
 xlabel('Time(s)');ylabel('Phase jitter residuals(rad)'); title('(f)','FontName','Times New Roman');
-%% ŒÛ≤Ó–£’˝
+%% Error correction
 flag = peak_I(1) - floor(act_n / 2):peak_I(1) + floor(act_n / 2 - 0.5);
 flag_long = peak_I(1) - floor(150 / 2):peak_I(1) + floor(300 / 2 - 0.5);
 t_N = true_peak / Fs - (0:n_peak - 1) / dfr;
@@ -106,13 +106,13 @@ figure;set(gcf,'position',[54 85 1600 600]);
 t_temp_long = t(flag_long) - t(flag_long(1));
 t_temp = t(flag) - t(flag_long(1));
 subplot 241;plot(t_temp_long * 1e6,real(IGMs_reshape(flag_long,:)),'k','Linewidth',1);
-ylim([-1.1 1.1]);xlabel('Time(¶Ãs)');ylabel('Amp(a.u.)'); title('(a)','FontName','Times New Roman');
+ylim([-1.1 1.1]);xlabel('Time(Œºs)');ylabel('Amp(a.u.)'); title('(a)','FontName','Times New Roman');
 subplot 242;plot(t_temp * 1e6,real(IGMs_reshape1(flag,:)),'k','Linewidth',1);
-xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1.1 1.1]);xlabel('Time(¶Ãs)');ylabel('Amp(a.u.)'); title('(b)','FontName','Times New Roman');
+xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1.1 1.1]);xlabel('Time(Œºs)');ylabel('Amp(a.u.)'); title('(b)','FontName','Times New Roman');
 subplot 243;plot(t_temp * 1e6,real(IGMs_reshape2(flag,:)),'k','Linewidth',1);
-xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1.1 1.1]);xlabel('Time(¶Ãs)');ylabel('Amp(a.u.)'); title('(c)','FontName','Times New Roman');
+xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1.1 1.1]);xlabel('Time(Œºs)');ylabel('Amp(a.u.)'); title('(c)','FontName','Times New Roman');
 subplot 244;plot(t_temp * 1e6,real(IGMs_reshape3(flag,:)),'k','Linewidth',1);
-xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1 1]);xlabel('Time(¶Ãs)');ylabel('Amp(a.u.)'); title('(d)','FontName','Times New Roman');
+xlim([min(t_temp)*1e6 max(t_temp)*1e6]);ylim([-1 1]);xlabel('Time(Œºs)');ylabel('Amp(a.u.)'); title('(d)','FontName','Times New Roman');
 subplot 245;plot(f/1e6,MAG,'k','Linewidth',1);
 xlim([min(f)/1e6 max(f)/1e6]);ylim([0 1.1]);xlabel('RF frequency(MHz)');ylabel('Amp(a.u.)'); title('(e)','FontName','Times New Roman');
 subplot 246;plot(f/1e6,MAG1,'k','Linewidth',1);
