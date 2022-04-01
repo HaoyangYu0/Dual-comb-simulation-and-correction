@@ -2,7 +2,7 @@
 % This algorithm can be used for the parameter optimization of dual-comb interferometer and the verification of error correction algorithm.
 % References
 % [1] H. Yu, K. Ni, Q. Zhou, X. Li, X. Wang, G. Wu, "Digital error correction of dual-comb interferometer without external optical referencing information," Optics Express, 2019, 27(20): 29425-29438.
-% [2] H. Yu, Q. Zhou, X. Li, X. Wang, K. Ni, °∞Mode-resolved dual-comb spectroscopy using error correction based on single optical intermedium,°± Optics Express, 2021, 29(4): 6271-6281.
+% [2] H. Yu, Q. Zhou, X. Li, X. Wang, K. Ni, ‚ÄúMode-resolved dual-comb spectroscopy using error correction based on single optical intermedium,‚Äù Optics Express, 2021, 29(4): 6271-6281.
 % Copyright, Haoyang Yu(yu.haoyang@csu.edu.cn) & Kai Ni(ni.kai@sz.tsinghua.edu.cn)
 clear all;
 clc;
@@ -83,8 +83,8 @@ end
 std_noise = 0.01;                              
 E_noise = std_noise * randn (1,n_count);
 IGMs = IGMs + E_noise;
-save('SimuDCI', 'IGMs', 'IGMs_ideal','delta_tau0_RF','delta_fc_RF','delta_phic_RF','fc_RF');%±£¥Êmat ˝æ›
-%% ∏……Ê–≈∫≈’π æ
+save('SimuDCI', 'IGMs', 'IGMs_ideal','delta_tau0_RF','delta_fc_RF','delta_phic_RF','fc_RF');%‰øùÂ≠òmatÊï∞ÊçÆ
+%% Display
 flag = peak_ideal(2) - floor(act_n / 2):peak_ideal(2) + floor(act_n / 2 - 0.5);
 figure;
 plot(t_lab(flag) * 1000, IGMs(flag),'k')
