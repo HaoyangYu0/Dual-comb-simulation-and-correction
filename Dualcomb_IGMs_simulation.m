@@ -83,7 +83,7 @@ end
 std_noise = 0.01;                              
 E_noise = std_noise * randn (1,n_count);
 IGMs = IGMs + E_noise;
-save('SimuDCI', 'IGMs', 'IGMs_ideal','delta_tau0_RF','delta_fc_RF','delta_phic_RF','fc_RF');%保存mat数据
+save('SimuDCI', 'IGMs', 'IGMs_ideal','delta_tau0_RF','delta_fc_RF','delta_phic_RF','fc_RF');
 %% Display
 flag = peak_ideal(2) - floor(act_n / 2):peak_ideal(2) + floor(act_n / 2 - 0.5);
 figure;
